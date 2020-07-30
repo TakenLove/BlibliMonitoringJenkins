@@ -1,6 +1,6 @@
 pipeline {
  agent {
-   label 'docker-vm'
+   label 'monitoring-vm'
  }
  
  stages {
@@ -28,7 +28,7 @@ pipeline {
    stage ('Deploy: Show Docker Compose Result') {
      steps {
        sh '''
-        docker-compose -f ./docker-compose.yml ps
+        docker-compose -f ./docker-compose-prom.yml ps
         docker container ls 
        '''
      }
